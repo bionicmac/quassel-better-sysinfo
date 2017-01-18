@@ -1,0 +1,7 @@
+#!/bin/bash
+echo [$(uname -a)] \
+[$(cat /proc/cpuinfo | grep 'model name' | cut -d ':' -f 2 | head -n 1 | sed 's/^ //g') \
+x$(cat /proc/cpuinfo | grep 'model name' | wc -l) cores] \
+[Total Disk: $(df -hT | grep -e '/$'| sed 's/      / /g' | cut -d ' ' -f 3) \
+Disk Used: $(df -hT | grep -e '/$'| sed 's/      / /g' | cut -d ' ' -f 6) \
+Disk Free: $(df -hT | grep -e '/$'| sed 's/      / /g' | cut -d ' ' -f 8)]
